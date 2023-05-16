@@ -1,0 +1,15 @@
+{
+  "name": "spell-out",
+  "version": "1.0.0",
+  "description": "spells out numbers and acronyms in a string",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "Ruyi Ren",
+  "license": "MIT",
+  "dependencies": {
+    "to-words": "^3.5.1"
+  }
+}
