@@ -1,12 +1,12 @@
 {
-  "name": "spell-out",
+  "name": "@gnbly/spell-out",
   "version": "1.0.0",
-  "description": "spells out numbers and acronyms in a string",
+  "description": "spells out numbers and acronyms in a string for TTS to read",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "author": "Ruyi Ren",
+  "author": "Ruyi Ren <ruyi.ren@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "to-words": "^3.5.1"
