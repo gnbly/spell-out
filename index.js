@@ -1,4 +1,4 @@
-import { ToWords } from 'to-words'
+const { ToWords } = require('to-words')
 
 const phoneRegex = /\d+-\d+-?\d+/g
 const numberRegex = /\d+/g
@@ -33,7 +33,7 @@ const letters = {
   z: 'zee'
 }
 
-export class Spell {
+class Spell {
   constructor(options={}) {
     this.shouldConvertNumbers = options.shouldConvertNumbers || true
     this.shouldConvertMonth = options.shouldConvertMonth || true
@@ -90,4 +90,8 @@ export class Spell {
     }
     return str
   }
+}
+
+module.exports = {
+  Spell,
 }
