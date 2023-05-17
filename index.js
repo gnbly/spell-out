@@ -1,7 +1,8 @@
 const { ToWords } = require('to-words')
 
 const phoneRegex = /\d+-\d+-?\d+/g
-const numberRegex = /\d+/g
+const currencyRegex = /\$\d+(,?\d+)*/g
+const numberRegex = /\d+(,?\d+)*/g
 const timeRegex = /\d+:\d+/g
 const acronymRegex = /[A-Z][A-Z]+/g
 const letters = {
@@ -69,8 +70,14 @@ class Spell {
     return str.replaceAll(timeRegex, m => m.split(':').map(t=>this.convertNumbers(t)).join(' '))
   }
 
+  convertCurrency(str) {
+    return str.replaceAll(currencyRegex, m => this.toWords.convert(parseInt(m.replaceAll(/\D/g,'')), {
+      currency: true
+    }))
+  }
+
   convertNumbers(str) {
-    return str.replaceAll(numberRegex, m => this.toWords.convert(m))
+    return str.replaceAll(numberRegex, m => this.toWords.convert(parseInt(m.replaceAll(/\D/g,''))))
   }
 
   convertAcronyms(str) {
@@ -82,6 +89,7 @@ class Spell {
       str = this.convertPhoneNumbers(str)
     }
     if(this.shouldConvertNumbers) {
+      str = this.convertCurrency(str)
       str = this.convertTime(str)
       str = this.convertNumbers(str)
     }
