@@ -47,7 +47,8 @@ class Spell {
   }
 
   convertNumbers(str) {
-    return str.replaceAll(numberRegex, m => this.toWords.convert(parseInt(m.replaceAll(/\D/g,''))))
+    return str.replaceAll(numberRegex, m => this.toWords.convert(parseInt(m.replaceAll(/\D/g,''))) + ' ')
+    .replaceAll('  ', ' ')
   }
 
   convertAcronyms(str) {
