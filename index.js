@@ -1,38 +1,8 @@
 const { ToWords } = require('to-words')
 
-const phoneRegex = /\d+-\d+-?\d+/g
-const currencyRegex = /\$\d+(,?\d+)*/g
-const numberRegex = /\d+(,?\d+)*/g
-const timeRegex = /\d+:\d+/g
-const acronymRegex = /[A-Z][A-Z]+/g
-const letters = {
-  a: 'eigh',
-  b: 'bee',
-  c: 'cee',
-  d: 'dee',
-  e: 'yee',
-  f: 'ef',
-  g: 'jee',
-  h: 'aitch',
-  i: 'eye',
-  j: 'jay',
-  k: 'kay',
-  l: 'el',
-  m: 'em',
-  n: 'en',
-  o: 'oh',
-  p: 'pee',
-  q: 'cue',
-  r: 'ar',
-  s: 'ess',
-  t: 'tee',
-  u: 'you',
-  v: 'vee',
-  w: 'doubleyou',
-  x: 'ex',
-  y: 'wy',
-  z: 'zee'
-}
+const { phoneRegex, currencyRegex, numberRegex, 
+  timeRegex, acronymRegex, letters, acronyms
+} = require('./constants')
 
 class Spell {
   constructor(options={}) {
@@ -81,7 +51,10 @@ class Spell {
   }
 
   convertAcronyms(str) {
-    return str.replaceAll(acronymRegex, m => m.split('').map(l=>letters[l.toLowerCase()]).join('-'))
+    return str.replaceAll(acronymRegex, m => {
+      if(acronyms.has(m)) return m
+      return m.split('').map(l=>letters[l.toLowerCase()]).join('-')
+    })
   }
 
   process(str) {
