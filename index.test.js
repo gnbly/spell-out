@@ -14,9 +14,16 @@ test('should work with currency', () => {
   expect(spell.process(test)).toBe(expected)
 })
 
-test('should work with currency', () => {
+test('should work with number and initialisms without spaces', () => {
   const spell = new Spell()
   const test = 'Sure, we will have someone reach out to you at 10AM next Tuesday to discuss the system in more detail.'
   const expected = 'Sure, we will have someone reach out to you at Ten eigh-em next Tuesday to discuss the system in more detail.'
+  expect(spell.process(test)).toBe(expected)
+})
+
+test('should work with currency', () => {
+  const spell = new Spell()
+  const test = 'Our price is $8.99. '
+  const expected = 'Our price is Eight Dollars And Ninety Nine cents. '
   expect(spell.process(test)).toBe(expected)
 })

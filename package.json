@@ -1,6 +1,6 @@
 {
   "name": "@gnbly/spell-out",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "spells out numbers and acronyms in a string for TTS to read",
   "main": "index.js",
   "scripts": {

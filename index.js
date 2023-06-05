@@ -41,13 +41,18 @@ class Spell {
   }
 
   convertCurrency(str) {
-    return str.replaceAll(currencyRegex, m => this.toWords.convert(parseInt(m.replaceAll(/\D/g,'')), {
-      currency: true
-    }))
+    return str.replaceAll(currencyRegex, m => {
+      console.log('m', m)
+      const n = parseFloat(m.replaceAll(/[^0-9\.]/g,''))
+      console.log('n', n)
+      return this.toWords.convert(n, {
+        currency: true
+      })
+    })
   }
 
   convertNumbers(str) {
-    return str.replaceAll(numberRegex, m => this.toWords.convert(parseInt(m.replaceAll(/\D/g,''))) + ' ')
+    return str.replaceAll(numberRegex, m => this.toWords.convert(parseInt(m.replaceAll(/[^0-9\.]/g,''))) + ' ')
     .replaceAll('  ', ' ')
   }
 

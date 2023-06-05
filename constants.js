@@ -58,7 +58,7 @@ const acronyms = new Set([
   'ZIP',])
 
 const phoneRegex = /\d+-\d+-?\d+/g
-const currencyRegex = /\$\d+(,?\d+)*/g
+const currencyRegex = /\$\d+((,|.)?\d+)*/g
 const numberRegex = /\d+(,?\d+)*/g
 const timeRegex = /\d+:\d+/g
 const acronymRegex = /[A-Z][A-Z]+/g
