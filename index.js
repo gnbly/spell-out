@@ -42,9 +42,7 @@ class Spell {
 
   convertCurrency(str) {
     return str.replaceAll(currencyRegex, m => {
-      console.log('m', m)
       const n = parseFloat(m.replaceAll(/[^0-9\.]/g,''))
-      console.log('n', n)
       return this.toWords.convert(n, {
         currency: true
       })
