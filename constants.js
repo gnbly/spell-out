@@ -63,7 +63,7 @@ const numberRegex = /\d+(,?\d+)*/g
 const timeRegex = /\d+:\d+/g
 const acronymRegex = /[A-Z][A-Z]+/g
 const letters = {
-  a: 'eigh',
+  a: 'ei',
   b: 'bee',
   c: 'cee',
   d: 'dee',
